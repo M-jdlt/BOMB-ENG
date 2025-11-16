@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Désarmez la Bombe et Sauvez la Planète</title>
+<title>Disarm the Bomb and Save the Planet</title>
 
 <link rel="manifest" href="manifest.json" />
 <link rel="icon" href="images/icon-192.png" type="image/png" />
@@ -34,12 +34,12 @@ button:hover{background-color:#00cc00;}
 <div class="warning-light"></div>
 <div class="explosion-flash" id="explosionFlash"></div>
 
-<h1>🚨 Désarmez la Bombe et Sauvez la Planète 🌎 🚨</h1>
-<button id="startBtn">COMMENCER</button>
+<h1>🚨 Disarm the Bomb and Save the Planet 🌎 🚨</h1>
+<button id="startBtn">START</button>
 
 <div id="timer">60:00</div>
-<input type="text" id="codeInput" placeholder="Entrez le code 4 chiffres pour désamorcer" />
-<button id="defuseBtn">VÉRIFIER LE CODE</button>
+<input type="text" id="codeInput" placeholder="Enter the 4 digit code to disarm" />
+<button id="defuseBtn">CHECK THE CODE</button>
 
 <div id="message"></div>
 <div id="popupMessage"></div>
@@ -99,7 +99,7 @@ function updateDisplay(){
 function startTimer(){
   if(interval) return;
   playTick();
-  messageDiv.textContent = "⏳ L'avenir est entre vos mains!";
+  messageDiv.textContent = "⏳ The Future is in your Hands";
   updateDisplay();
 
   interval = setInterval(()=>{
@@ -124,21 +124,21 @@ function stopTimer(){
   const input = document.getElementById("codeInput").value.trim();
   if(input === correctCode){
     clearInterval(interval);
-    messageDiv.textContent = "✅ Bombe désactivée avec succès !";
-    showPopup("✅ Bombe désamorcée !", "#00ff00");
+    messageDiv.textContent = "✅ Successfully Disarmed the Bomb !";
+    showPopup("✅ Bomb Disarmed!", "#00ff00");
     chimeSound.play();
-    showQRCode("images/qr-success.png", "Scannez ici pour en savoir plus");
+    showQRCode("images/qr-success.png", "Scan to lea");
   } else {
-    messageDiv.textContent = "❌ Code incorrect, Bombe toujours active !";
-    showPopup("❌ Code incorrect !", "red");
+    messageDiv.textContent = "❌ Incorrect Code, the Bomb is still Active !";
+    showPopup("❌ Incorrect Code !", "red");
   }
 }
 
 function explodeBomb(){
   explosionFlash.style.opacity = 1;
   document.body.classList.add("shake");
-  showPopup("💥 BOOM ! Le temps est écoulé !", "red");
-  messageDiv.textContent = "💥 BOOM ! Mission échouée !";
+  showPopup("💥 BOOM ! Time is Up!", "red");
+  messageDiv.textContent = "💥 BOOM ! Mission Failed!";
   explosionSound.play();
 
   setTimeout(()=>{
