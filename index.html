@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Disarm the Bomb and Save the Planet</title>
+<title>Restart the Battery and Save the Planet</title>
 
 <link rel="manifest" href="manifest.json" />
 <link rel="icon" href="images/icon-192.png" type="image/png" />
@@ -34,7 +34,7 @@ button:hover{background-color:#00cc00;}
 <div class="warning-light"></div>
 <div class="explosion-flash" id="explosionFlash"></div>
 
-<h1>🚨 Disarm the Bomb and Save the Planet 🌎 🚨</h1>
+<h1>🚨 Restart the Battery and Save the Planet 🌎 🚨</h1>
 <button id="startBtn">START</button>
 
 <div id="timer">60:00</div>
@@ -54,7 +54,7 @@ button:hover{background-color:#00cc00;}
 <script>
 let totalTime = 3600;
 let interval = null;
-const correctCode = "C7552134";
+const correctCode = "10622600586684";
 const timerDisplay = document.getElementById("timer");
 const messageDiv = document.getElementById("message");
 const explosionFlash = document.getElementById("explosionFlash");
@@ -124,12 +124,12 @@ function stopTimer(){
   const input = document.getElementById("codeInput").value.trim();
   if(input === correctCode){
     clearInterval(interval);
-    messageDiv.textContent = "✅ Successfully Disarmed the Bomb !";
-    showPopup("✅ Bomb Disarmed!", "#00ff00");
+    messageDiv.textContent = "✅ Battery Successfully Restarted !";
+    showPopup("✅ Battery Started!", "#00ff00");
     chimeSound.play();
-    showQRCode("images/qr-success.png", "Scan to lea");
+    showQRCode("images/qr-success.png", "Scan to learn more");
   } else {
-    messageDiv.textContent = "❌ Incorrect Code, the Bomb is still Active !";
+    messageDiv.textContent = "❌ Incorrect Code !";
     showPopup("❌ Incorrect Code !", "red");
   }
 }
@@ -137,8 +137,8 @@ function stopTimer(){
 function explodeBomb(){
   explosionFlash.style.opacity = 1;
   document.body.classList.add("shake");
-  showPopup("💥 BOOM ! Time is Up!", "red");
-  messageDiv.textContent = "💥 BOOM ! Mission Failed!";
+  showPopup("💥 Time is Up!", "red");
+  messageDiv.textContent = "💥 Mission Failed!";
   explosionSound.play();
 
   setTimeout(()=>{
